@@ -14,7 +14,7 @@ import { isAntDesignPro } from '@/utils/utils';
 import logo from '../assets/logo.svg';
 
 /**
- * use Authorized check all menu item
+ * 使用权限检查所有菜单
  */
 const menuDataRender = menuList =>
   menuList.map(item => {
@@ -50,9 +50,6 @@ const footerRender = (_, defaultDom) => {
 
 const BasicLayout = props => {
   const { dispatch, children, settings } = props;
-  /**
-   * constructor
-   */
 
   useEffect(() => {
     if (dispatch) {
@@ -64,9 +61,6 @@ const BasicLayout = props => {
       });
     }
   }, []);
-  /**
-   * init variables
-   */
 
   const handleMenuCollapse = payload =>
     dispatch &&
@@ -79,6 +73,7 @@ const BasicLayout = props => {
     <ProLayout
       logo={logo}
       onCollapse={handleMenuCollapse}
+      // 左侧菜单根据是否有url, 来判断是否可以点击
       menuItemRender={(menuItemProps, defaultDom) => {
         if (menuItemProps.isUrl) {
           return defaultDom;
@@ -86,6 +81,7 @@ const BasicLayout = props => {
 
         return <Link to={menuItemProps.path}>{defaultDom}</Link>;
       }}
+    // 面包屑导航
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
@@ -96,6 +92,7 @@ const BasicLayout = props => {
         },
         ...routers,
       ]}
+      // 面包屑路径高亮
       itemRender={(route, params, routes, paths) => {
         const first = routes.indexOf(route) === 0;
         return first ? (
@@ -104,9 +101,13 @@ const BasicLayout = props => {
           <span>{route.breadcrumbName}</span>
         );
       }}
+      // 自定义页脚
       footerRender={footerRender}
+      // 左侧菜单自定义数据渲染方法
       menuDataRender={menuDataRender}
+      // 国际化设置
       formatMessage={formatMessage}
+      // header右侧内容
       rightContentRender={rightProps => <RightContent {...rightProps} />}
       {...props}
       {...settings}
