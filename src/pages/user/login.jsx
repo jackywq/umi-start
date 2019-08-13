@@ -54,8 +54,8 @@ class NormalLoginForm extends React.Component {
         </Form.Item>
         <Form.Item>
             <Button type="primary" htmlType="submit" className={styles['login-form-button']} onClick={this.handleLogin}>
-            Log in
-          </Button>
+                Log in
+            </Button>
         </Form.Item>
       </Form>
     );
