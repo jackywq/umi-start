@@ -20,7 +20,7 @@ module.exports = [
             {
                 path: '/systemSetting',
                 name: 'systemSetting',
-                icon: 'systemSetting',
+                icon: 'setting',
                 routes: [
                     {
                         path: '/systemSetting/detail',
