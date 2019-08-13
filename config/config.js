@@ -53,22 +53,7 @@ const plugins = [
       autoAddMenu: true,
     },
   ],
-]; // 针对 preview.pro.ant.design 的 GA 统计代码
-
-if (isAntDesignProPreview) {
-  plugins.push([
-    'umi-plugin-ga',
-    {
-      code: 'UA-72788897-6',
-    },
-  ]);
-  plugins.push([
-    'umi-plugin-pro',
-    {
-      serverUrl: 'https://ant-design-pro.netlify.com',
-    },
-  ]);
-}
+];
 
 export default {
   plugins,
@@ -80,20 +65,7 @@ export default {
     ie: 11,
   },
   devtool: isAntDesignProPreview ? 'source-map' : false,
-  // umi routes: https://umijs.org/zh/guide/router.html
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/BasicLayout',
-      Routes: ['src/pages/Authorized'],
-        //   authority: ['admin', 'user'],
-        routes: routesConfig,
-    },
-    {
-      component: './404',
-    },
-  ],
-  // Theme for antd: https://ant.design/docs/react/customize-theme-cn
+  routes: routesConfig,
   theme: {
     'primary-color': primaryColor,
   },
