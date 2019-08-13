@@ -18,14 +18,14 @@ module.exports = [
                 component: './Dashboard',  
             },
             {
-                path: '/home',
-                name: 'home',
-                icon: 'home',
+                path: '/systemSetting',
+                name: 'systemSetting',
+                icon: 'systemSetting',
                 routes: [
                     {
-                        path: '/home/manage',
-                        name: 'manage',
-                        component: './home/manage'
+                        path: '/systemSetting/detail',
+                        name: 'detail',
+                        component: './systemSetting/detail'
                     }
                 ]
             },
