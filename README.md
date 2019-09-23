@@ -13,5 +13,9 @@
     npm run build
 ```
 
+## 🏈 具体使用说明
+- [antd-design-pro](https://pro.ant.design/docs/getting-started-cn) 
+- [umiJS](https://umijs.org/zh/guide/)
+
 ## 🌴 编辑器使用
 - 推荐使用`vscode`
