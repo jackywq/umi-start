@@ -23,7 +23,7 @@ module.exports = [
                 path: '/dashboard',
                 name: 'dashboard',
                 icon: 'dashboard',
-                component: './Dashboard',  
+                component: './Dashboard',
             },
             {
                 path: '/systemSetting',
