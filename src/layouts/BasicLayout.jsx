@@ -10,7 +10,7 @@ import { connect } from 'dva';
 import { formatMessage } from 'umi-plugin-react/locale';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
-import { isAntDesignPro } from '@/utils/utils';
+import PropTypes from 'prop-types';
 import logo from '../assets/logo.svg';
 
 /**
@@ -21,32 +21,6 @@ const menuDataRender = menuList =>
     const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
     return Authorized.check(item.authority, localItem, null);
   });
-
-const footerRender = (_, defaultDom) => {
-  if (!isAntDesignPro()) {
-    return defaultDom;
-  }
-
-  return (
-    <>
-      {defaultDom}
-      <div
-        style={{
-          padding: '0px 24px 24px',
-          textAlign: 'center',
-        }}
-      >
-        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
-          <img
-            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
-            width="82px"
-            alt="netlify logo"
-          />
-        </a>
-      </div>
-    </>
-  );
-};
 
 const BasicLayout = props => {
   const { dispatch, children, settings } = props;
@@ -60,7 +34,7 @@ const BasicLayout = props => {
         type: 'settings/getSetting',
       });
     }
-  }, []);
+  }, [dispatch]);
 
   const handleMenuCollapse = payload =>
     dispatch &&
@@ -81,7 +55,7 @@ const BasicLayout = props => {
 
         return <Link to={menuItemProps.path}>{defaultDom}</Link>;
       }}
-    // 面包屑导航
+      // 面包屑导航
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
@@ -101,8 +75,6 @@ const BasicLayout = props => {
           <span>{route.breadcrumbName}</span>
         );
       }}
-      // 自定义页脚
-      footerRender={footerRender}
       // 左侧菜单自定义数据渲染方法
       menuDataRender={menuDataRender}
       // 国际化设置
@@ -115,6 +87,12 @@ const BasicLayout = props => {
       {children}
     </ProLayout>
   );
+};
+
+BasicLayout.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
+  settings: PropTypes.shape({}).isRequired,
 };
 
 export default connect(({ global, settings }) => ({

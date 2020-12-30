@@ -1,10 +1,10 @@
-import { Icon, Tooltip } from 'antd';
 import React from 'react';
+import { Icon, Tooltip } from 'antd';
 import { connect } from 'dva';
 import { formatMessage } from 'umi-plugin-react/locale';
+import PropTypes from 'prop-types';
 import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';
-// import SelectLang from '../SelectLang';
 import styles from './index.less';
 
 const GlobalHeaderRight = props => {
@@ -34,10 +34,10 @@ const GlobalHeaderRight = props => {
           }),
         ]}
         onSearch={value => {
-          console.log('input', value);
+          // console.log('input', value);
         }}
         onPressEnter={value => {
-          console.log('enter', value);
+          // console.log('enter', value);
         }}
       />
       <Tooltip
@@ -55,9 +55,13 @@ const GlobalHeaderRight = props => {
         </a>
       </Tooltip>
       <Avatar />
-      {/* <SelectLang className={styles.action} /> */}
     </div>
   );
+};
+
+GlobalHeaderRight.propTypes = {
+  theme: PropTypes.string.isRequired,
+  layout: PropTypes.string.isRequired,
 };
 
 export default connect(({ settings }) => ({

@@ -8,6 +8,7 @@ class Home extends React.Component {
     super();
     this.commonTableRef = {};
   }
+
   render() {
     const tableProps = {
       url: '/api/agentLevel/list',

@@ -1,9 +1,90 @@
-const { strictEslint } = require('@umijs/fabric');
-
 module.exports = {
-  ...strictEslint,
-  globals: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
-    page: true,
+  parser: 'babel-eslint',
+
+  // eslint和prettier存在冲突的情况， prettier 一定要是最后一个，才能确保覆盖 [参考：https://zhuanlan.zhihu.com/p/80574300， https://github.com/jokingzhang/eslint-prettier-react-demo/blob/master/.eslintrc.js]
+  extends: ['airbnb', 'plugin:prettier/recommended'],
+
+  // 在配置文件里配置插件时，可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。
+  plugins: ['react-hooks'],
+
+  // 为我们提供运行环境，一个环境定义了一组预定义的全局变量
+  env: {
+    browser: true,
+    node: true,
+  },
+
+  // "off" 或 0 - 关闭规则
+  // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
+  // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
+  rules: {
+    'prettier/prettier': 'error', // 相当于把 Prettier 推荐的格式问题的配置以 ESLint rules 的方式写入, 这样相当于可以统一代码问题的来源
+    'arrow-body-style': 0,
+    'consistent-return': 0,
+    'generator-star-spacing': 0,
+    'global-require': 0,
+    'import/extensions': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'no-bitwise': 0,
+    'no-cond-assign': 0,
+    'no-else-return': 0,
+    'no-nested-ternary': 0,
+    'no-restricted-syntax': 0,
+    'no-use-before-define': 0,
+    'react/forbid-prop-types': 2,
+    'react/jsx-filename-extension': 0,
+    'react/jsx-no-bind': 0,
+    'react/prefer-stateless-function': 0,
+    'react/prop-types': 1,
+    'require-yield': 1,
+    'no-unused-vars': 0,
+    'space-infix-ops': 0,
+    'object-shorthand': 0,
+    quotes: 0,
+    'jsx-quotes': 0,
+    'prefer-const': 0,
+    'react/jsx-indent': [0, 4],
+    indent: [0, 4],
+    curly: [1, 'all'],
+    'comma-dangle': [0, 'never'],
+    'react/jsx-indent-props': 0,
+    'react/jsx-curly-spacing': 0,
+    'space-in-parens': 0,
+    'no-irregular-whitespace': 2,
+    'no-mixed-spaces-and-tabs': [2, false],
+    'no-underscore-dangle': 0,
+    'key-spacing': 0,
+    'no-param-reassign': 0,
+    'no-lonely-if': 0,
+    'linebreak-style': 0,
+    'max-len': [2, 300],
+    'class-methods-use-this': 0,
+    'quote-props': 0,
+    'no-shadow': 0,
+    'guard-for-in': 0,
+    'no-labels': 0,
+    'prefer-template': 0,
+    'react/sort-comp': 0,
+    'import/no-dynamic-require': 0,
+    'no-debugger': 0,
+    'function-paren-newline': 0,
+    'no-eval': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'react/no-did-mount-set-state': 0,
+    'prefer-destructuring': 0,
+    'no-plusplus': 0,
+    'object-curly-newline': 0,
+    'jsx-a11y/anchor-is-valid': 0,
+    'no-unused-expressions': 0,
+    'react/no-array-index-key': 0,
+    'arrow-parens': 0,
+    experimentalDecorators: 0,
+    'no-return-assign': 0,
+    'react-hooks/rules-of-hooks': 0,
+    'react-hooks/exhaustive-deps': 1,
+    'react/jsx-closing-bracket-location': 0,
+    camelcase: 0,
   },
 };

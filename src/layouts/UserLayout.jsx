@@ -1,11 +1,9 @@
 import { DefaultFooter, getMenuData, getPageTitle } from '@ant-design/pro-layout';
 import DocumentTitle from 'react-document-title';
-import Link from 'umi/link';
 import React from 'react';
 import { connect } from 'dva';
 import { formatMessage } from 'umi-plugin-react/locale';
-// import SelectLang from '@/components/SelectLang';
-import logo from '../assets/logo.svg';
+import PropTypes from 'prop-types';
 import styles from './UserLayout.less';
 
 const UserLayout = props => {
@@ -32,25 +30,21 @@ const UserLayout = props => {
       })}
     >
       <div className={styles.container}>
-        {/* <div className={styles.lang}>
-          <SelectLang />
-        </div> */}
-        <div className={styles.content}>
-          <div className={styles.top}>
-            <div className={styles.header}>
-              <Link to="/">
-                <img alt="logo" className={styles.logo} src={logo} />
-                <span className={styles.title}>Ant Design</span>
-              </Link>
-            </div>
-            <div className={styles.desc}>Ant Design 是西湖区最具影响力的 Web 设计规范</div>
-          </div>
-          {children}
-        </div>
+        <div className={styles.content}>{children}</div>
         <DefaultFooter />
       </div>
     </DocumentTitle>
   );
+};
+
+UserLayout.propTypes = {
+  route: PropTypes.shape({
+    routes: PropTypes.arrayOf(),
+  }).isRequired,
+  children: PropTypes.element.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(({ settings }) => ({ ...settings }))(UserLayout);

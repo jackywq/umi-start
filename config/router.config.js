@@ -20,10 +20,10 @@ module.exports = [
         component: './Welcome',
       },
       {
-        path: '/home',
-        name: 'home',
-        icon: 'home',
-        component: './Home',
+        path: '/list',
+        name: 'list',
+        icon: 'smile',
+        component: './List',
       },
       {
         path: '/dashboard',

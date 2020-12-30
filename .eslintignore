@@ -1,3 +1,6 @@
-/lambda/
-/scripts
-/config
+dist/
+node_modules/
+public/
+.idea/
+.vscode/
+!.eslintrc.js
