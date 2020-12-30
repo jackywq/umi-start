@@ -3,7 +3,7 @@ import defaultSettings from './defaultSettings'; // https://umijs.org/config/
 import slash from 'slash2';
 import webpackPlugin from './plugin.config';
 import routesConfig from './router.config';
-const { pwa, primaryColor } = defaultSettings; // preview.pro.ant.design only do not use in your production ;
+const { pwa, primaryColor } = defaultSettings;
 // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
 
 const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
@@ -17,11 +17,8 @@ const plugins = [
         hmr: true,
       },
       locale: {
-        // default false
         enable: true,
-        // default zh-CN
         default: 'zh-CN',
-        // default true, when it is true, will use `navigator.language` overwrite default
         baseNavigator: true,
       },
       dynamicImport: {

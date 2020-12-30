@@ -1,0 +1,52 @@
+@import '~antd/lib/style/themes/default.less';
+
+.commonTable {
+  .total {
+    color: #1890ff;
+    padding: '0 3px';
+  }
+  .pageFooter {
+    box-shadow: 0 2px 30px #f0f1f2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px 24px;
+    z-index: 100;
+    margin-top: 0 !important;
+    width: 100%;
+    text-align: right;
+    background: #fff;
+  }
+  .table {
+    margin-top: 15px;
+  }
+  .tableAlert {
+    margin-top: 15px;
+    .fontWeight {
+      font-weight: 600;
+    }
+  }
+}
+
+.popover {
+  width: 200px;
+  white-space: pre-line;
+  overflow: auto;
+}
+
+.commonSearch {
+  :global {
+    .ant-form-item {
+      margin-bottom: 12px;
+    }
+    .ant-cascader-picker {
+      width: 100%;
+    }
+    .ant-select {
+      width: 100%;
+    }
+  }
+  .buttons {
+    margin-bottom: 0px !important;
+  }
+}
