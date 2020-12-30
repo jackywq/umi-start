@@ -25,6 +25,7 @@ module.exports = {
     // 允许未知的媒体功能的名字
     'media-feature-name-no-unknown': null,
 
+    // 允许单位零长度
     'length-zero-no-unit': null,
   },
 };
