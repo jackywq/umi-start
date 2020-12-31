@@ -2,7 +2,6 @@ import { DefaultFooter, getMenuData, getPageTitle } from '@ant-design/pro-layout
 import DocumentTitle from 'react-document-title';
 import React from 'react';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
 import PropTypes from 'prop-types';
 import styles from './UserLayout.less';
 
@@ -25,7 +24,6 @@ const UserLayout = props => {
       title={getPageTitle({
         pathname: location.pathname,
         breadcrumb,
-        formatMessage,
         ...props,
       })}
     >

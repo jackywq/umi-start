@@ -7,7 +7,6 @@ import ProLayout from '@ant-design/pro-layout';
 import React, { useEffect } from 'react';
 import Link from 'umi/link';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import PropTypes from 'prop-types';
@@ -59,10 +58,7 @@ const BasicLayout = props => {
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
-          breadcrumbName: formatMessage({
-            id: 'menu.home',
-            defaultMessage: 'Home',
-          }),
+          breadcrumbName: '首页',
         },
         ...routers,
       ]}
@@ -77,8 +73,6 @@ const BasicLayout = props => {
       }}
       // 左侧菜单自定义数据渲染方法
       menuDataRender={menuDataRender}
-      // 国际化设置
-      formatMessage={formatMessage}
       // header右侧内容
       rightContentRender={rightProps => <RightContent {...rightProps} />}
       {...props}
